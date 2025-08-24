@@ -5,10 +5,13 @@ const reminders_schema = new Schema(
     title: { type: String },
     description: { type: String },
     remindAt: { type: Date },
-    user: { type: Schema.Types.ObjectId, refPath: "userPath" },
-    userPath: { type: String },
-    notified: { type: Boolean, default: false },
-    userEmail: { type: String },
+    user: { type: Schema.Types.ObjectId, refPath: "userRef" },
+    userRef: { type: String },
+    notified: {
+      type: String,
+      default: "pending",
+      enum: ["pending", "success", "failed"],
+    },
   },
   {
     timestamps: true,

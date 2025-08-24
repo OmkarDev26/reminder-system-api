@@ -15,15 +15,13 @@ export default (data) => {
                   <div style="font-family: Helvetica,Arial,sans-serif;">
               <div style="margin:50px auto;width:70%;padding:20px 0">
                 <p>Hi,</p>
-                <p>Use the following link to reset your password.</p>
-                <p>The link will expire after 5 minutes.</p>
-                <h2 style="background: #00466a;margin: 0 auto;width: max-content;padding: 0 10px;color: #fff;border-radius: 4px;">${data?.message}</h2>
+                <p>${data?.message}</p>
               </div>
             </div>`;
 
       let mailOptions = {
         to: data?.email, // list of receivers
-        subject: data?.title, // Subject line
+        subject: `Reminder for ${data?.title}`, // Subject line
         html: output, // html body
       };
 
